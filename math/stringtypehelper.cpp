@@ -1,5 +1,5 @@
 /*
- * This file is part of HCalc. This file represents the initialisation of the application.
+ * This file is part of HCalc. This file describes the methods for the Calculator class.
  *
  * Copyright (C) 2016 Huw Pritchard
  *
@@ -18,23 +18,26 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "mainwindow.h"
-#include <QApplication>
+#include "stringtypehelper.h"
 
-/*
- *
- * I would like to thank Wikipedia's Shunting Yard Algorithm page for the shunting yard algorithm and
- * https://github.com/uklimaschewski/EvalEx for some ideas on how to implement tokenizer,
- * variables and functions.
- *
- * Many thanks!
- */
-
-
-int main(int argc, char *argv[])
+StringTypeHelper::StringTypeHelper()
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+
+}
+
+bool StringTypeHelper::isNumeric(std::string input)
+{
+    try
+    {
+        std::stod(input);
+    }
+    catch (std::invalid_argument& e)
+    {
+        return false;
+    }
+    catch (const std::out_of_range e)
+    {
+        return false;
+    }
+    return true;
 }

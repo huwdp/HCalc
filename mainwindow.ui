@@ -171,12 +171,12 @@
      <x>0</x>
      <y>0</y>
      <width>486</width>
-     <height>23</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
     <property name="title">
-     <string>File</string>
+     <string>Fi&amp;le</string>
     </property>
     <addaction name="actionExit"/>
    </widget>
@@ -186,23 +186,58 @@
     </property>
     <addaction name="actionAbout"/>
     <addaction name="actionLicense"/>
+    <addaction name="actionGenerate_Tokens"/>
+    <addaction name="actionGenerate_Postfix"/>
+    <addaction name="actionRun_Tests"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuHelp"/>
   </widget>
   <action name="actionExit">
    <property name="text">
-    <string>Exit</string>
+    <string>&amp;Exit</string>
    </property>
   </action>
   <action name="actionAbout">
    <property name="text">
-    <string>About</string>
+    <string>&amp;About</string>
    </property>
   </action>
   <action name="actionLicense">
    <property name="text">
-    <string>License</string>
+    <string>&amp;License</string>
+   </property>
+  </action>
+  <action name="actionGenerate_Tokens">
+   <property name="text">
+    <string>&amp;Generate Tokens</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionGenerate_Infix">
+   <property name="text">
+    <string>Generate Infix</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionGenerate_Postfix">
+   <property name="text">
+    <string>Generate &amp;Postfix</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
+   </property>
+  </action>
+  <action name="actionRun_Tests">
+   <property name="text">
+    <string>&amp;Run Tests</string>
+   </property>
+   <property name="visible">
+    <bool>false</bool>
    </property>
   </action>
  </widget>

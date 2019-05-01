@@ -17,45 +17,14 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+#include "token.h"
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
-#include <QMainWindow>
-#include <QString>
-#include <QLineEdit>
-#include <QMessageBox>
-#include "math/calculator.h"
-#include "math/testharness.h"
-
-namespace Ui {
-class MainWindow;
+Token::Token(std::string value)
+{
+    this->value = value;
 }
 
-class MainWindow : public QMainWindow
+std::string Token::get()
 {
-    Q_OBJECT
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-private:
-    unsigned short developerCount;
-    QMessageBox msg;
-    Ui::MainWindow *ui;
-    Calculator calculator;
-private slots:
-    void addToOutput(string input);
-    void addToOutput(QString input);
-    void addToInput();
-    void calculate();
-    void about();
-    void license();
-    void exit();
-    void clear();
-    void runTests();
-    void generateTokens();
-    void generatePostfix();
-    void developer();
-};
-
-#endif // MAINWINDOW_H
+    return value;
+}

@@ -1,5 +1,5 @@
 /*
- * This file is part of HCalc. This file represents the initialisation of the application.
+ * This file is part of HCalc. This file describes the methods for the Calculator class.
  *
  * Copyright (C) 2016 Huw Pritchard
  *
@@ -18,23 +18,27 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "mainwindow.h"
-#include <QApplication>
 
-/*
- *
- * I would like to thank Wikipedia's Shunting Yard Algorithm page for the shunting yard algorithm and
- * https://github.com/uklimaschewski/EvalEx for some ideas on how to implement tokenizer,
- * variables and functions.
- *
- * Many thanks!
- */
+#ifndef INFIXTOPOSTFIX_H
+#define INFIXTOPOSTFIX_H
 
+#include <vector>
+#include <string>
+#include <stack>
+#include "operators.h"
+#include "variables/variables.h"
+#include "stringtypehelper.h"
 
-int main(int argc, char *argv[])
+#include "exceptions.h"
+
+class InfixToPostfix
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
-}
+private:
+    Operators *operatorsList;
+    StringTypeHelper stringTypeHelper;
+public:
+    InfixToPostfix(Operators *operatorsList);
+    std::vector<string> convert(vector<string> input);
+};
+
+#endif

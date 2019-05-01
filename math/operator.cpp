@@ -17,45 +17,41 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
+#include "operator.h"
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
-#include <QMainWindow>
-#include <QString>
-#include <QLineEdit>
-#include <QMessageBox>
-#include "math/calculator.h"
-#include "math/testharness.h"
-
-namespace Ui {
-class MainWindow;
+Operator::Operator(std::string op, Direction direction, int precedence)
+{
+    this->op = op;
+    this->direction = direction;
+    this->precedence = precedence;
 }
 
-class MainWindow : public QMainWindow
+std::string Operator::getOperator()
 {
-    Q_OBJECT
-public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
-private:
-    unsigned short developerCount;
-    QMessageBox msg;
-    Ui::MainWindow *ui;
-    Calculator calculator;
-private slots:
-    void addToOutput(string input);
-    void addToOutput(QString input);
-    void addToInput();
-    void calculate();
-    void about();
-    void license();
-    void exit();
-    void clear();
-    void runTests();
-    void generateTokens();
-    void generatePostfix();
-    void developer();
-};
+    return op;
+}
 
-#endif // MAINWINDOW_H
+void Operator::setOperator(std::string op)
+{
+    this->op = op;
+}
+
+Direction Operator::getDirection()
+{
+    return direction;
+}
+
+void Operator::setDirection(Direction direction)
+{
+    this->direction = direction;
+}
+
+int Operator::getPrecedence()
+{
+    return precedence;
+}
+
+void Operator::setPrecedence(int precedence)
+{
+    this->precedence = precedence;
+}

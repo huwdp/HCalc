@@ -1,5 +1,5 @@
 /*
- * This file is part of HCalc. This file represents the initialisation of the application.
+ * This file is part of HCalc. This file describes the methods for the Calculator class.
  *
  * Copyright (C) 2016 Huw Pritchard
  *
@@ -18,23 +18,16 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#include "mainwindow.h"
-#include <QApplication>
 
-/*
- *
- * I would like to thank Wikipedia's Shunting Yard Algorithm page for the shunting yard algorithm and
- * https://github.com/uklimaschewski/EvalEx for some ideas on how to implement tokenizer,
- * variables and functions.
- *
- * Many thanks!
- */
+#ifndef INSTRUCTION_H
+#define INSTRUCTION_H
 
-
-int main(int argc, char *argv[])
+class Instruction
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
-}
+public:
+    virtual double execute() = 0;
+    virtual toString() = 0;
+};
+
+
+#endif // INSTRUCTION_H
