@@ -44,4 +44,10 @@ struct InvalidCalculation : public std::exception {
    }
 };
 
+struct InvalidCharacters : public std::exception {
+   const char * what () const throw () {
+      return "Invalid characters";
+   }
+};
+
 #endif // EXCEPTIONS_H

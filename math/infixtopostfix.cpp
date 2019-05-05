@@ -38,7 +38,16 @@ std::vector<string> InfixToPostfix::convert(vector<string> input)
     for (vector<string>::iterator it = input.begin(); it != input.end(); it++)
     {
         string token = (*it);
-        if (stringTypeHelper.isNumeric(token))
+
+        if (token.empty())
+        {
+            // No nothing
+        }
+        else if (!stringTypeHelper.isNumeric(token) && operatorsList->getOperator(token) == nullptr && token != ")")
+        {
+            throw InvalidCalculation();
+        }
+        else if (stringTypeHelper.isNumeric(token))
         {
             postfix.push_back(token);
         }

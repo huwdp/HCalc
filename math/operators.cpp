@@ -28,7 +28,6 @@ Operators::Operators()
     operators.push_back(new Operator("+", LEFT, 2));
     operators.push_back(new Operator("-", LEFT, 2));
     operators.push_back(new Operator("(", LEFT, 1));
-    //operators.push_back(new Operator(")", LEFT, 1));
 }
 
 Operators::~Operators()
@@ -56,12 +55,11 @@ Operator *Operators::getOperator(char op)
 {
     for (std::vector<Operator*>::iterator it = operators.begin(); it != operators.end(); ++it)
     {
-        // TODO check length before grabbing index 0
-        if ((*it)->getOperator().at(0) == op)
+        std::string operationName = (*it)->getOperator();
+        if (!operationName.empty() && operationName.at(0) == op)
         {
             return (*it);
         }
     }
     return nullptr;
 }
-

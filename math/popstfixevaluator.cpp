@@ -55,10 +55,6 @@ double PostfixEvaluator::evaluate(std::vector<std::string> input)
                 double result = calculateOperation(op, std::stod(operation2), std::stod(operation1));
                 operations.push(std::to_string(result));
             }
-            else
-            {
-                //throw InvalidCalculation();
-            }
         }
     }
     std::string resultString = operations.top();
