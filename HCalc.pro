@@ -54,3 +54,7 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+DISTFILES += \
+    .gitignore \
+    README
